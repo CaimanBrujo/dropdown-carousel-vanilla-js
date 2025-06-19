@@ -2,51 +2,62 @@ import img1 from '../assets/images/img1.jpg';
 import img2 from '../assets/images/img2.jpg';
 import img3 from '../assets/images/img3.jpg';
 
-export default function initSlider() {
-  const container = document.querySelector('.slideshow-container');
+export default function initSlider1() {
+  const container = document.createElement('section');
+  container.classList.add('slideshow-container');
 
-  container.innerHTML = `
-    <div class="mySlides fade">
-      <img src="${img1}" class="slide-img">
-      <div class="text">One</div>
-    </div>
-    <div class="mySlides fade">
-      <img src="${img2}" class="slide-img">
-      <div class="text">Two</div>
-    </div>
-    <div class="mySlides fade">
-      <img src="${img3}" class="slide-img">
-      <div class="text">Three</div>
-    </div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  `;
+  const slidesData = [
+    { src: img1, caption: 'ONE' },
+    { src: img2, caption: 'TWO' },
+    { src: img3, caption: 'THREE' },
+  ];
 
-  // Tu lógica de slider (plusSlides, showSlides, etc.)
+  const slidesWrapper = document.createElement('div');
+  slidesWrapper.classList.add('slides-wrapper');
+
+  slidesData.forEach((slide) => {
+    const slideDiv = document.createElement('div');
+    slideDiv.classList.add('mySlides', 'fade');
+
+    const image = document.createElement('img');
+    image.src = slide.src;
+    image.alt = slide.caption;
+    image.classList.add('slide-img');
+
+    const caption = document.createElement('div');
+    caption.classList.add('text');
+    caption.textContent = slide.caption;
+
+    slideDiv.appendChild(image);
+    slideDiv.appendChild(caption);
+    slidesWrapper.appendChild(slideDiv);
+  });
+
+  const prev = document.createElement('a');
+  prev.classList.add('prev');
+  prev.innerHTML = '&#10094;';
+  prev.addEventListener('click', () => showSlides((slideIndex -= 1)));
+
+  const next = document.createElement('a');
+  next.classList.add('next');
+  next.innerHTML = '&#10095;';
+  next.addEventListener('click', () => showSlides((slideIndex += 1)));
+
+  container.appendChild(slidesWrapper);
+  container.appendChild(prev);
+  container.appendChild(next);
+  document.querySelector('.site-main').appendChild(container);
+
   let slideIndex = 1;
-  const slides = document.getElementsByClassName('mySlides');
-  const prev = document.querySelector('.prev');
-  const next = document.querySelector('.next');
+  showSlides(slideIndex);
 
   function showSlides(n) {
+    const slides = container.querySelectorAll('.mySlides');
+
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
 
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-
+    slides.forEach((slide) => (slide.style.display = 'none'));
     slides[slideIndex - 1].style.display = 'block';
-  }
-
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
-  }
-
-  showSlides(slideIndex);
-
-  if (prev && next) {
-    prev.addEventListener('click', () => plusSlides(-1));
-    next.addEventListener('click', () => plusSlides(1));
   }
 }

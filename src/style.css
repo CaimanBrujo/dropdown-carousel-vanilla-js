@@ -168,7 +168,6 @@ body {
 
 .prev,
 .next {
-  cursor: pointer;
   position: absolute;
   top: 50%;
   padding: 16px;
@@ -187,4 +186,25 @@ body {
 
 .next {
   right: 8px;
+}
+
+/* SLIDER2 */
+.dots {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: var(--gray-600);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active,
+.dot:hover {
+  background-color: var(--white);
 }
