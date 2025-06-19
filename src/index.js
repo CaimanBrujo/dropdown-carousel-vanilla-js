@@ -1,9 +1,6 @@
 import './style.css';
-import logo from './assets/images/logo-js.svg';
+import setupDropdown from './modules/dropdown.js';
 
-const img = document.createElement('img');
-img.src = logo;
-img.alt = 'Logo';
-img.width = 150;
-
-document.body.appendChild(img);
+document.addEventListener('DOMContentLoaded', () => {
+  setupDropdown();
+});
