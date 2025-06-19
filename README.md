@@ -1,110 +1,80 @@
-# ⚙️ Webpack Starter Template
+# Dropdown + Carousel – Vanilla JS
 
-A clean and minimal Webpack 5 setup for modern JavaScript projects.  
-Includes CSS support, image handling, and dynamic HTML generation.
+A focused exercise using Webpack 5 to build a responsive layout featuring:
 
-> Clone, install, and start building right away — no setup hassle.
+- A dropdown navigation menu
+- Three types of sliders (manual, with dots, and autoplay)
+- Modular JavaScript structure
+- CSS variables and modern layout practices
 
----
-
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone git@github.com:CaimanBrujo/template-webpack.git my-project
-cd my-project
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Start development server
-
-```bash
-npm run dev
-```
-
-Opens the project at http://localhost:8080/ with live reload enabled.
+Live Preview: https://caimanbrujo.github.io/dropdown-carousel-vanilla-js/
 
 ---
 
-## 📦 Build for production
+## Getting Started
 
-```bash
-npm run build
-```
+1. Clone the repository
 
-Creates a dist/ folder with everything ready to deploy:
+   git clone git@github.com:CaimanBrujo/dropdown-carousel-vanilla-js.git
+   cd dropdown-carousel-vanilla-js
 
-- index.html generated from the template
-- Bundled main.js and extracted main.css
-- Optimized images inside dist/assets/
+2. Install dependencies
 
----
+   npm install
 
-## Code Quality: ESLint + Prettier
+3. Start development server
 
-This template includes ESLint and Prettier to keep your code clean, consistent, and error-free.
+   npm run dev
 
-### Lint your code
-
-```bash
-npm run lint
-```
-
-Runs ESLint on all .js files inside src/ and reports any issues or bad practices (like var, ==, etc).
-
-ESLint uses the new Flat Config system with modern JS rules.
-
-### Format your code
-
-```bash
-npm run format
-```
-
-Runs Prettier on all .js, .css, and .html files to fix indentation, quotes, spacing, and more.
-
-Prettier handles formatting — ESLint handles code style and errors.
+Project will open on http://localhost:8080/ with hot reload.
 
 ---
 
-## 📁 Project Structure
+## Build for Production
 
-```
-template-webpack/
-├── dist/                  ← Build output (auto-generated when builded)
+   npm run build
+
+Build output will be in the `dist/` folder, ready to deploy.
+
+---
+
+## Code Quality Tools
+
+### ESLint
+
+   npm run lint
+
+Checks JS files under `/src/` for issues.
+
+### Prettier
+
+   npm run format
+
+Formats all code to match style rules (.js, .css, .html).
+
+---
+
+## 📁 Structure
+
+dropdown-carousel-vanilla-js/
+├── dist/
 ├── src/
-│   ├── assets/images/     ← Image assets
-│   ├── index.js           ← JavaScript entry point
-│   ├── style.css          ← Global styles (with CSS variables)
-│   └── template.html      ← HTML template for html-webpack-plugin
-├── .gitignore
-├── eslint.config.js       ← ESLint Flat Config
-├── .prettierrc            ← Prettier config
-├── .prettierignore        ← Files to ignore when formatting
-├── package.json
+│   ├── assets/images/
+│   ├── modules/
+│   │   ├── dropdown.js
+│   │   ├── slider1.js (basic)
+│   │   ├── slider2.js (with dots)
+│   │   └── slider3.js (autoplay)
+│   ├── index.js
+│   ├── style.css
+│   └── template.html
 ├── webpack.config.js
+├── eslint.config.js
+├── .prettierrc
 └── README.md
-```
-
----
-
-## Features
-
-- Webpack 5
-- CSS + variables + reset
-- Image support with asset/resource
-- Auto-generated index.html via html-webpack-plugin
-- Clean dist/ builds with mini-css-extract-plugin
-- Live reload with webpack-dev-server
-- ESLint + Prettier integrated for clean, consistent code
 
 ---
 
 ## Author
 
-Made with code by [Caimán Brujo](https://github.com/CaimanBrujo)
+Crafted with patience by [Caimán Brujo](https://github.com/CaimanBrujo)
